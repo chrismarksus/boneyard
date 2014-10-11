@@ -6,7 +6,7 @@ module.exports = function(grunt) {
             style: 'expanded'
           },
           files: {
-            'boneyard.css': 'boneyard.sass'
+            'dist/boneyard.css': 'boneyard.sass'
           }
         }
       },
@@ -21,13 +21,13 @@ module.exports = function(grunt) {
           options: {
             import: false
           },
-          src: ['boneyard.css']
+          src: ['dist/boneyard.css']
         }
       },
       cssmin: {
         css:{
-            src: 'boneyard.css',
-            dest: 'boneyard.min.css'
+            src: 'dist/boneyard.css',
+            dest: 'dist/boneyard.min.css'
         }
       }
     });
