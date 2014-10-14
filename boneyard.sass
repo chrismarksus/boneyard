@@ -1,2 +1,50 @@
-body
+$mobleWidth: 480px
+$tableWidth: 700px
+$smallScreenWidth: 900px
+$wholeWidth: 100%
+$threeQuarterWidth: 75%
+$halfWidth: 50%
+$quarterWidth: 25%
+$spacingWidth: 0.8%
+$columnNumber: 12
+                                                
+@mixin borderBox($type)
+  -webkit-box-sizing: $type
+  -moz-box-sizing: $type
+  box-sizing: $type
+
+*,
+*:after,
+*:before
+  margin: 0
   padding: 0
+  +borderBox(border-box)
+
+.boneyard:after,
+.fenced-boneyard:after,
+.mausoleum-bonyard:after
+  content: ""
+  display: table
+  clear: both
+
+.mausoleum-bonyard,
+.fenced-boneyard
+  padding: $spacingWidth $spacingWidth 0 $spacingWidth
+
+.mausoleum-bonyard [class*='grave-']
+  padding-right: $spacingWidth
+  padding-bottom: $spacingWidth
+
+.mausoleum-bonyard:not(.fenced-boneyard) .grave-end
+  padding-right: 0
+
+[class*='grave-']
+  float: left
+
+[class*='grave-']:last-of-type
+  float: right
+
+@for $i from 1 through $columnNumber
+  $graveWidth: 1/$i
+  .grave-#{$i}
+    width: percentage($graveWidth)

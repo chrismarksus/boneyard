@@ -1,14 +1,448 @@
 <!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, minimal-ui">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <link rel="stylesheet" href="boneyard.min.css">
+    <title>Boneyard CSS grave... I mean Grid.</title>
 
-    </head>
-    <body>
-    </body>
+    <link rel="stylesheet" href="dist/boneyard.min.css">
+
+    <style>
+        /* Custom Styles */
+        .marker {
+            background-color: #ECECEC;
+            border:1px solid #CCC;
+        }
+        .marker:before {
+            content: "marker-";       /* Display the counter */
+        }
+        @media screen and (min-width: 700px) and (max-width: 900px) {
+            body { background-color:#ccffcc; }
+        }
+        @media screen and (max-width: 700px) {
+            body { background-color:#ccccff; }
+        }
+        @media screen and (max-width: 480px) {
+            body { background-color:#ffcccc; }
+        }
+    </style>
+</head>
+<body>
+
+    <h6>boneyard</h6>
+
+    <div class="boneyard">
+
+        <!-- 1 column -->
+        <div class="grave-1">
+            <div class="marker">1</div>
+        </div>
+        
+        <!-- 2 columns -->
+        <div class="grave-2">
+            <div class="marker">2</div>
+        </div>
+
+        <div class="grave-2">
+            <div class="marker">2</div>
+        </div>
+
+        <!-- 3 columns -->
+        <div class="grave-3">
+            <div class="marker">3</div>
+        </div>
+
+        <div class="grave-3">
+            <div class="marker">3</div>
+        </div>
+
+        <div class="grave-3">
+            <div class="marker">3</div>
+        </div>
+
+        <!-- 4 columns -->
+        <div class="grave-4">
+            <div class="marker">4</div>
+        </div>
+
+        <div class="grave-4">
+            <div class="marker">4</div>
+        </div>
+
+        <div class="grave-4">
+            <div class="marker">4</div>
+        </div>
+
+        <div class="grave-4">
+            <div class="marker">4</div>
+        </div>
+
+        <!-- 5 columns -->
+        <div class="grave-5">
+            <div class="marker">5</div>
+        </div>
+
+        <div class="grave-5">
+            <div class="marker">5</div>
+        </div>
+
+        <div class="grave-5">
+            <div class="marker">5</div>
+        </div>
+
+        <div class="grave-5">
+            <div class="marker">5</div>
+        </div>
+
+        <div class="grave-5">
+            <div class="marker">5</div>
+        </div>
+
+        <!-- 6 columns -->
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <div class="grave-6">
+            <div class="marker">6</div>
+        </div>
+
+        <!-- 7 columns -->
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <div class="grave-7">
+            <div class="marker">7</div>
+        </div>
+
+        <!-- 8 columns -->
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <div class="grave-8">
+            <div class="marker">8</div>
+        </div>
+
+        <!-- 9 columns -->
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <div class="grave-9">
+            <div class="marker">9</div>
+        </div>
+
+        <!-- 10 columns -->
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <div class="grave-10">
+            <div class="marker">10</div>
+        </div>
+
+        <!-- 11 columns -->
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <div class="grave-11">
+            <div class="marker">11</div>
+        </div>
+
+        <!-- 12 columns -->
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+
+        <div class="grave-12">
+            <div class="marker">12</div>
+        </div>
+        
+    </div>
+    
+    <h6>fenced boneyard</h6>
+    
+    <div class="fenced-boneyard">
+    
+        <!-- 25/75 column -->
+        <div class="grave-p25">
+            <div class="marker">p25</div>
+        </div>
+    
+        <div class="grave-p75 grave-end">
+            <div class="marker grave-2">2</div>
+            <div class="marker grave-2">2</div>
+        </div>
+
+        <div class="grave-p25">
+            <div class="marker">p25</div>
+        </div>
+        
+        <div class="grave-p75 grave-end">
+            <div class="marker grave-3">3</div>
+            <div class="marker grave-3">3</div>
+            <div class="marker grave-3">3</div>
+        </div>
+
+        <div class="grave-p25">
+            <div class="marker">p25</div>
+        </div>
+        
+        <div class="grave-p75 grave-end">
+            <div class="marker grave-4">4</div>
+            <div class="marker grave-4">4</div>
+            <div class="marker grave-4">4</div>
+            <div class="marker grave-4">4</div>
+        </div>
+        
+        
+    </div>
+    
+    <h6>mausoleum bonyard</h6>
+    
+    <div class="mausoleum-bonyard">
+    
+        <!-- 25/50/25 column-->
+        <div class="grave-p25">
+            <div class="marker">p25</div>
+        </div>
+        
+        <div class="grave-p50">
+            <div class="marker">p50</div>
+        </div>
+
+        <div class="grave-p25 grave-end">
+            <div class="marker">p25</div>
+        </div>
+        
+        <!-- 75/25 column -->
+        <div class="grave-p75">
+            <div class="marker">p75</div>
+        </div>
+
+        <div class="grave-p25 grave-end">
+            <div class="marker">p25</div>
+        </div>
+
+        <!-- 25/75 column -->
+        <div class="grave-p25">
+            <div class="marker">p25</div>
+        </div>
+
+        <div class="grave-p75 grave-end">
+            <div class="marker">p75</div>
+        </div>
+
+        <!-- 60/40 column -->
+        <div class="grave-p60">
+            <div class="marker">p60</div>
+        </div>
+
+        <div class="grave-p40 grave-end">
+            <div class="marker">p40</div>
+        </div>
+    </div>
+
+</body>
 </html>
