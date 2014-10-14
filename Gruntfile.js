@@ -19,7 +19,8 @@ module.exports = function(grunt) {
       csslint: {
         dev: {
           options: {
-            import: false
+            import: false,
+            "box-sizing": false
           },
           src: ['dist/boneyard.css']
         }
@@ -29,6 +30,27 @@ module.exports = function(grunt) {
             src: 'dist/boneyard.css',
             dest: 'dist/boneyard.min.css'
         }
+      },
+      stylestats: {
+        src: ['dist/boneyard.css'],
+        options: {
+          size: true,
+          gzippedSize: false,
+          simplicity: true,
+          rules: true,
+          selectors: true,
+          lowestCohesion: true,
+          lowestCohesionSelector: true,
+          totalUniqueFontSizes: true,
+          uniqueFontSize: false,
+          totalUniqueColors: true,
+          uniqueColor: false,
+          idSelectors: true,
+          universalSelectors: true,
+          importantKeywords: false,
+          mediaQueries: true,
+          propertiesCount: 5
+        }
       }
     });
 
@@ -36,6 +58,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
+    grunt.loadNpmTasks('grunt-stylestats');
 
     /**
      * Default task
@@ -47,6 +70,7 @@ module.exports = function(grunt) {
     ]);
     grunt.registerTask('dist', [
       'sass:dev',
-      'cssmin:css'
+      'cssmin:css',
+      'stylestats'
     ]);
 };

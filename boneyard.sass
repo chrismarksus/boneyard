@@ -38,13 +38,18 @@ $columnNumber: 12
 .mausoleum-bonyard:not(.fenced-boneyard) .grave-end
   padding-right: 0
 
-[class*='grave-']
+.boneyard [class*='grave-'],
+.fenced-boneyard [class*='grave-'],
+.mausoleum-boneyard [class*='grave-']
   float: left
 
-[class*='grave-']:last-of-type
+.boneyard [class*='grave-']:last-of-type,
+.fenced-boneyard [class*='grave-']:last-of-type,
+.mausoleum-boneyard [class*='grave-']:last-of-type
   float: right
 
 @for $i from 1 through $columnNumber
   $graveWidth: 1/$i
   .grave-#{$i}
     width: percentage($graveWidth)
+
