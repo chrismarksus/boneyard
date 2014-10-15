@@ -1,57 +1,62 @@
 module.exports = function(grunt) {
     grunt.initConfig({
-      sass: {
-        dev: {
-          options: {
-            style: 'expanded'
-          },
-          files: {
-            'dist/boneyard.css': 'boneyard.sass'
-          }
+        pkg: grunt.file.readJSON('package.json'),
+        sass: {
+            dev: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'dist/boneyard.css': 'boneyard.sass'
+                }
+            }
+        },
+        watch: {
+            all: {
+                files: 'boneyard.sass',
+                tasks: ['sass:dev', 'csslint:dev']
+            }
+        },
+        csslint: {
+            dev: {
+                options: {
+                    import: false,
+                    "box-sizing": false,
+                    "regex-selectors": false,
+                    "universal-selector": false,
+                    "unqualified-attributes": false
+                },
+                src: ['dist/boneyard.css']
+            }
+        },
+        cssmin: {
+            css:{
+                src: 'dist/boneyard.css',
+                dest: 'dist/boneyard.min.css',
+                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+            }
+        },
+        stylestats: {
+            src: ['dist/boneyard.css'],
+            options: {
+                size: true,
+                gzippedSize: false,
+                simplicity: true,
+                rules: true,
+                selectors: true,
+                lowestCohesion: true,
+                lowestCohesionSelector: true,
+                totalUniqueFontSizes: true,
+                uniqueFontSize: false,
+                totalUniqueColors: true,
+                uniqueColor: false,
+                idSelectors: true,
+                universalSelectors: true,
+                importantKeywords: false,
+                mediaQueries: true,
+                propertiesCount: 5
+            }
         }
-      },
-      watch: {
-        all: {
-          files: 'boneyard.sass',
-          tasks: ['sass:dev', 'csslint:dev']
-        }
-      },
-      csslint: {
-        dev: {
-          options: {
-            import: false,
-            "box-sizing": false
-          },
-          src: ['dist/boneyard.css']
-        }
-      },
-      cssmin: {
-        css:{
-            src: 'dist/boneyard.css',
-            dest: 'dist/boneyard.min.css'
-        }
-      },
-      stylestats: {
-        src: ['dist/boneyard.css'],
-        options: {
-          size: true,
-          gzippedSize: false,
-          simplicity: true,
-          rules: true,
-          selectors: true,
-          lowestCohesion: true,
-          lowestCohesionSelector: true,
-          totalUniqueFontSizes: true,
-          uniqueFontSize: false,
-          totalUniqueColors: true,
-          uniqueColor: false,
-          idSelectors: true,
-          universalSelectors: true,
-          importantKeywords: false,
-          mediaQueries: true,
-          propertiesCount: 5
-        }
-      }
     });
 
     grunt.loadNpmTasks('grunt-contrib-sass');
@@ -65,12 +70,12 @@ module.exports = function(grunt) {
      * Run `grunt` on the command line
      */
     grunt.registerTask('default', [
-      'sass:dev',
-      'watch'
+        'sass:dev',
+        'watch'
     ]);
     grunt.registerTask('dist', [
-      'sass:dev',
-      'cssmin:css',
-      'stylestats'
+        'sass:dev',
+        'cssmin:css',
+        'stylestats'
     ]);
 };

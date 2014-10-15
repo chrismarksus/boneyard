@@ -22,25 +22,25 @@ $columnNumber: 12
 
 .boneyard:after,
 .fenced-boneyard:after,
-.mausoleum-bonyard:after
+.mausoleum-boneyard:after
   content: ""
   display: table
   clear: both
 
-.mausoleum-bonyard,
+.mausoleum-boneyard,
 .fenced-boneyard
   padding: $spacingWidth $spacingWidth 0 $spacingWidth
 
-.mausoleum-bonyard [class*='grave-']
+.mausoleum-boneyard [class*='grave-']
   padding-right: $spacingWidth
   padding-bottom: $spacingWidth
 
-.mausoleum-bonyard:not(.fenced-boneyard) .grave-end
+.mausoleum-boneyard:not(.fenced-boneyard) .grave-end
   padding-right: 0
 
 .boneyard [class*='grave-'],
 .fenced-boneyard [class*='grave-'],
-.mausoleum-boneyard [class*='grave-']
+.mausoleum-boneyard [class*='grave-p']
   float: left
 
 .boneyard [class*='grave-']:last-of-type,
@@ -53,3 +53,56 @@ $columnNumber: 12
   .grave-#{$i}
     width: percentage($graveWidth)
 
+.grave-p25
+  width: 25%
+.grave-p40
+  width: 40%
+.grave-p50
+  width: 50%
+.grave-p60
+  width: 60%
+.grave-p75
+  width: 75%
+
+@media (min-width: $tableWidth) and (max-width: $smallScreenWidth)
+  .grave-2,
+  .grave-7
+    width: $wholeWidth 
+
+  .grave-4,
+  .grave-8,
+  .grave-10,
+  .grave-12 
+    width: $halfWidth
+
+@media (max-width: $tableWidth)
+  .grave-4,
+  .grave-6,
+  .grave-8,
+  .grave-10,
+  .grave-12
+    width: $halfWidth
+
+  .grave-1,
+  .grave-2,
+  .grave-3,
+  .grave-5,
+  .grave-7,
+  .grave-9,
+  .grave-11
+    width: $wholeWidth 
+
+@media (max-width: $mobleWidth)
+  .grave-1,
+  .grave-2,
+  .grave-3,
+  .grave-4,
+  .grave-5,
+  .grave-6,
+  .grave-7,
+  .grave-8,
+  .grave-9,
+  .grave-10,
+  .grave-11,
+  .grave-12
+    width: $wholeWidth 
