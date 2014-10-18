@@ -1,6 +1,6 @@
 {
-  "name": "boneyard",
-  "version": "0.5.0",
+  "name": "Boneyard.css",
+  "version": "0.1.0",
   "description": "CSS Grid Framework",
   "main": "Gruntfile.js",
   "scripts": {

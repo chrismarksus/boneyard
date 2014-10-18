@@ -4,7 +4,8 @@ module.exports = function(grunt) {
         sass: {
             dev: {
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
+                    banner: '/*\n <%= pkg.name %> was compiled on <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
                 },
                 files: {
                     'dist/boneyard.css': 'boneyard.sass'
@@ -31,9 +32,11 @@ module.exports = function(grunt) {
         },
         cssmin: {
             css:{
+                options: {
+                    banner: '/*\n <%= pkg.name %> was minified on <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                },
                 src: 'dist/boneyard.css',
-                dest: 'dist/boneyard.min.css',
-                banner: '/*\n <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> \n*/\n'
+                dest: 'dist/boneyard.min.css'
             }
         },
         stylestats: {
@@ -91,22 +94,22 @@ module.exports = function(grunt) {
      * Default task
      * Run `grunt` on the command line
      */
-    grunt.registerTask('default', [
+    grunt.registerTask('default', 'Compile the sass to css and the style guide, then watch for changes to boneyard.sass', [
         'sass:dev',
         'styledocco:dist',
         'watch'
     ]);
-    grunt.registerTask('dist', [
+    grunt.registerTask('dist', 'Compile Sass to css, minifiy css, print stats for css, and complie the style guide', [
         'sass:dev',
         'cssmin:css',
         'stylestats',
         'styledocco:dist'
     ]);
-    grunt.registerTask('deploy', [
+    grunt.registerTask('deploy', 'Compile style guide and push it to github pages', [
         'styledocco:dist',
         'git_deploy:deploy'
     ]);
-    grunt.registerTask('doc', [
+    grunt.registerTask('doc', 'Complie the style guide', [
         'styledocco:dist'
     ]);
 };
