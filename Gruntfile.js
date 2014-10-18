@@ -56,6 +56,17 @@ module.exports = function(grunt) {
                 mediaQueries: true,
                 propertiesCount: 5
             }
+        },
+        styledocco: {
+            dist: {
+                options: {
+                    name: 'Boneyard.css',
+                    preprocessor: 'sass'
+                },
+                files: {
+                    'docs/': 'boneyard.sass'
+                }
+            }
         }
     });
 
@@ -64,6 +75,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-csslint');
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-stylestats');
+    grunt.loadNpmTasks('grunt-styledocco');
 
     /**
      * Default task
@@ -71,11 +83,16 @@ module.exports = function(grunt) {
      */
     grunt.registerTask('default', [
         'sass:dev',
+        'styledocco:dist',
         'watch'
     ]);
     grunt.registerTask('dist', [
         'sass:dev',
         'cssmin:css',
-        'stylestats'
+        'stylestats',
+        'styledocco:dist'
+    ]);
+    grunt.registerTask('doc', [
+        'styledocco:dist',
     ]);
 };
