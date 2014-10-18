@@ -1,3 +1,17 @@
+/*
+  #Boneyard.sass (main file)
+
+  ##Custom builds
+
+  If you want a custom set of numbers in your version of boneyard. You will need to complie it yourself.
+
+  Just download, change the sass variables, and save. 
+
+  */
+
+/*
+  #####Sass Variables
+  */
 $mobleWidth: 480px
 $tableWidth: 700px
 $smallScreenWidth: 900px
@@ -7,7 +21,10 @@ $halfWidth: 50%
 $quarterWidth: 25%
 $spacingWidth: 0.8%
 $columnNumber: 12
-                                                
+
+/*
+  #####BorderBox (Sass mixin)
+  */
 @mixin borderBox($type)
   -webkit-box-sizing: $type
   -moz-box-sizing: $type
@@ -20,6 +37,64 @@ $columnNumber: 12
   padding: 0
   +borderBox(border-box)
 
+/* 
+  ##Base class names
+
+  This is the base line classname to add to the container that you want to a
+  apply the grid too.
+
+  ####boneyard (class)
+
+  Basic boneyard has no spacing around the outside or inbetween the graves.
+  ```
+  <div class='boneyard'>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+  </div>
+  ```
+
+  ####fenced boneyard (class)
+
+  Fenced boneyard has a space around the outside but not between the graves.
+  ```
+  <div class='fenced-boneyard'>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+  </div>
+  ```
+  
+  ####mausoleum boneyard (class)
+
+  Mausoleum has spacing around the boneyard and the graves.
+  ```
+  <div class='mausoleum-boneyard'>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+    <div class="grave-1">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-1</p>
+    </div>
+  
+  </div>
+  ```
+  */
+.boneyard:after,
+.boneyard:after,
 .boneyard:after,
 .fenced-boneyard:after,
 .mausoleum-boneyard:after
@@ -48,11 +123,73 @@ $columnNumber: 12
 .mausoleum-boneyard [class*='grave-']:last-of-type
   float: right
 
+/*
+  ##Graves
+
+
+  Graves are the vertibrae of the boneyard grid. They range from 1 to 12.
+
+  ```
+  <div class="boneyard">
+    <div class="grave-2">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-2</p>
+    </div>
+    <div class="grave-2">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P grave-2</p>
+    </div>
+  </div>
+  ```
+  */
 @for $i from 1 through $columnNumber
   $graveWidth: 1/$i
   .grave-#{$i}
     width: percentage($graveWidth)
 
+/*
+  ##Percentages
+
+  ####A 75/25 layout
+
+  ```
+  <div class="boneyard">
+    <div class="grave-p75">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 75%</p>
+    </div>
+    <div class="grave-p25">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 25%</p>
+    </div>
+  </div>
+  ```
+
+  ####A 25/50/25 layout
+
+  ```
+  <div class="boneyard">
+    <div class="grave-p25">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 25%</p>
+    </div>
+    <div class="grave-p50">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 50%</p>
+    </div>
+    <div class="grave-p25">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 25%</p>
+    </div>
+  </div>
+  ```
+
+  ####A 60/40 layout
+
+  ```
+  <div class="boneyard">
+    <div class="grave-p60">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 60%</p>
+    </div>
+    <div class="grave-p40">
+      <p style="width:100%;background-color:#CCC;border: 1px solid #999;">R.I.P 40%</p>
+    </div>
+  </div>
+  ```
+  */
 .grave-p25
   width: 25%
 .grave-p40
