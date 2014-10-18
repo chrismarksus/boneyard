@@ -67,6 +67,15 @@ module.exports = function(grunt) {
                     'docs/': 'boneyard.sass'
                 }
             }
+        },
+        git_deploy: {
+            deploy: {
+                options: {
+                    url: 'https://github.com/chrismarksus/boneyard.git',
+                    message: 'Auto deploy style guide'
+                },
+                src: 'docs'
+            },
         }
     });
 
@@ -76,6 +85,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-cssmin');
     grunt.loadNpmTasks('grunt-stylestats');
     grunt.loadNpmTasks('grunt-styledocco');
+    grunt.loadNpmTasks('grunt-git-deploy');
 
     /**
      * Default task
@@ -92,7 +102,11 @@ module.exports = function(grunt) {
         'stylestats',
         'styledocco:dist'
     ]);
-    grunt.registerTask('doc', [
+    grunt.registerTask('deploy', [
         'styledocco:dist',
+        'git_deploy:deploy'
+    ]);
+    grunt.registerTask('doc', [
+        'styledocco:dist'
     ]);
 };
